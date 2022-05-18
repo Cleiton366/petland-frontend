@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap');
+
+* {
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 3.5fr 6fr;
+  min-height: 30.5rem;
+  margin: 3rem auto;
+  border: 1px solid #cce7e7;
+  border-radius: 0.5rem;
+  background-color: #cce7e7;
+}
+
+.containerlogin {
+  background-color: #98d4ca;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 8rem;
+}
+
+.facebookIcon img {
+  max-width: 12rem;
+  margin: 1rem auto;
+  display: flex;
+  cursor: pointer;
+}
+
+.googleIcon img {
+  max-width: 12.4rem;
+  margin: 1rem auto;
+  display: flex;
+  cursor: pointer;
+}
+
+.about {
+  padding-top: 12.5rem;
+  padding-left: 1rem;
+}
+
+.content h1 {
+  font-size: xx-large;
+  padding-top: 6rem;
+}
+
+.textoSecundario {
+  font-family: 'Roboto Mono', monospace;
+  font-size: medium;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+.imgResponsive {
+  max-width: 30rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+}
