@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap');
+
+* {
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  min-height: 30.5rem;
+  margin: 3rem auto;
+  border: 1px solid #98d4ca;
+  border-radius: 0.5rem;
+  background-color: #98d4ca;
+}
+
+.header {
+}

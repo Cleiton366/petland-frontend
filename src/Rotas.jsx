@@ -8,6 +8,9 @@ const Rotas = () => {
       <Routes>
         <Route exact path="/Login" element={<Login />} />
       </Routes>
+      <Routes>
+        <Route exact path="/Home" element={<Home />} />
+      </Routes>
     </Router>
   )
 }
