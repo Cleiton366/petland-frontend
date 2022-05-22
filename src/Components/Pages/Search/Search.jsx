@@ -1,5 +1,7 @@
-import styles from './Search.module.css'
+import React from 'react';
 
-const Search = () => {}
+import styles from './Search.module.css';
 
-export default Search
+const Search = () => {};
+
+export default Search;

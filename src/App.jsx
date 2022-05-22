@@ -1,13 +1,13 @@
-import './App.css'
-import Rotas from './Rotas'
+import React from 'react';
+import './App.css';
+import Rotas from './Rotas';
 
-
-const App = () =>{
+function App() {
   return (
     <div>
       <Rotas />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
