@@ -1,0 +1,16 @@
+.page-header {
+  background-color: #98d4ca;
+}
+
+.page-header > * {
+  flex: 1 1 0px;
+}
+
+.page-header-title {
+  font-family: "Sacramento", cursive;
+  font-size: 5em;
+  line-height: 1.2;
+  text-align: center;
+  transform: translateY(10%);
+  background-color: transparent;
+}

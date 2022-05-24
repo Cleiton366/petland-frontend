@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './Search.css';
 import AnimalPreview from './AnimalPreview';
+import PageHeader from '../PageHeader';
 
 function Search() {
   const { animalType } = useParams();
@@ -33,15 +34,18 @@ function Search() {
   ));
 
   return (
-    <div className="search">
-      <div className="d-flex p-2 align-items-center">
-        <div className="p-2">Show pets in my:</div>
-        <button type="button" className="btn btn-primary p-1 px-3 mx-1">City</button>
-        <button type="button" className="btn btn-primary p-1 px-3 mx-1">State</button>
-        <button type="button" className="btn btn-primary p-1 px-3 mx-1">Everywhere</button>
-      </div>
-      <div className="d-flex flex-column p-2 align-items-center">
-        {petList}
+    <div>
+      <PageHeader />
+      <div className="search">
+        <div className="d-flex p-2 align-items-center">
+          <div className="p-2">Show pets in my:</div>
+          <button type="button" className="btn btn-primary p-1 px-3 mx-1">City</button>
+          <button type="button" className="btn btn-primary p-1 px-3 mx-1">State</button>
+          <button type="button" className="btn btn-primary p-1 px-3 mx-1">Everywhere</button>
+        </div>
+        <div className="d-flex flex-column p-2 align-items-center">
+          {petList}
+        </div>
       </div>
     </div>
   );
