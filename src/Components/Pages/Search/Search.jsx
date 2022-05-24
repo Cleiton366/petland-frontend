@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
 import './Search.css';
 import AnimalPreview from './AnimalPreview';
@@ -22,16 +23,32 @@ function Search() {
 
         if (status >= 200 && status < 300) {
           setPets(data);
+          setLoading(false);
         }
       } catch (err) {
         console.log(err.message);
+        setLoading(false);
       }
     })();
   }, [pets]);
 
-  const petList = pets.map((pet) => (
-    <AnimalPreview key={pet.petid} pet={pet} />
-  ));
+  console.log(loading);
+  let petList;
+  if (pets.length === 0) {
+    if (loading) {
+      petList = (
+        <ReactLoading className="m-5" width="3em" type="spokes" color="black" />
+      );
+    } else {
+      petList = (
+        <div className="m-5">Não há resultados.</div>
+      );
+    }
+  } else {
+    petList = pets.map((pet) => (
+      <AnimalPreview key={pet.petid} pet={pet} />
+    ));
+  }
 
   return (
     <div>
