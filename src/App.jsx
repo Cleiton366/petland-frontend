@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import Rotas from './Rotas';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Rotas />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-import styles from './Search.module.css';
+import './Search.css';
 import AnimalPreview from './AnimalPreview';
 
 function Search() {
@@ -33,14 +33,14 @@ function Search() {
   ));
 
   return (
-    <div>
-      <div>
-        <div>Show pets in my:</div>
-        <button type="button">City</button>
-        <button type="button">State</button>
-        <button type="button">Everywhere</button>
+    <div className="search">
+      <div className="d-flex p-2 align-items-center">
+        <div className="p-2">Show pets in my:</div>
+        <button type="button" className="btn btn-primary p-1 px-3 mx-1">City</button>
+        <button type="button" className="btn btn-primary p-1 px-3 mx-1">State</button>
+        <button type="button" className="btn btn-primary p-1 px-3 mx-1">Everywhere</button>
       </div>
-      <div>
+      <div className="d-flex flex-column p-2 align-items-center">
         {petList}
       </div>
     </div>

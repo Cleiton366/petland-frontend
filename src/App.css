@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap");
+
+div {
+  background-color: inherit;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  background-color: #cce7e7;
+}
+
+.app {
+  background-color: #cce7e7;
+}
+
+button {
+  text-decoration: none;
+  color: black !important;
+  background-color: #98d4ca !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-family: "Poppins", sans-serif;
+  font-size: small !important;
+}
+
+button:active {
+  background-color: #84beb5 !important;
+}
+
+.roboto {
+  font-family: "Roboto Mono", monospace;
+}
