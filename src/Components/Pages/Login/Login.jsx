@@ -8,29 +8,12 @@ import { api } from '../../Services/Api'
 import { serverToken, serverURL } from '../../../Keys/Server'
 
 const Login = () => {
+
   const getAuthGoogle = async () => {
-    await axios
-      .get(`${api}/auth/Google`, {
-        headers: { authorization: 'a6a836bcce5fc942452c0899954d23bb' }
-      })
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    window.open("http://localhost:4000/auth/google", "_self");
   }
   const getAuthFacebook = async () => {
-    axios.defaults.baseURL = <link to="http://localhost:4000/auth/google" /> //`${serverURL}/auth/facebook`
-    axios.defaults.headers.common.authorization = serverToken
-    axios.defaults.headers.post['Content-Type'] =
-      'application/x-www-form-urlencoded'
-
-    try {
-      await axios.get().then(() => console.log('foi'))
-    } catch (error) {
-      return error
-    }
+    window.open("http://localhost:4000/auth/facebook", "_self");
   }
 
   return (
