@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap');
 
 * {
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
   display: grid;
   gap: 20px;
   grid-template-columns: 3.5fr 6fr;
-  min-height: 30.5rem;
-  margin: 3rem auto;
+  min-height: 100vh;
   border: 1px solid #cce7e7;
   border-radius: 0.5rem;
   background-color: #cce7e7;
@@ -45,25 +46,26 @@
 }
 
 .about {
-  padding-top: 12.5rem;
+  padding-top: 16.5rem;
   padding-left: 1rem;
 }
 
 .content h1 {
   font-size: xx-large;
-  padding-top: 6rem;
+  padding-top: 6.5rem;
 }
 
 .textoSecundario {
   font-family: 'Roboto Mono', monospace;
   font-size: medium;
   text-align: center;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
 }
 
 .imgResponsive {
-  max-width: 30rem;
+  max-width: 50rem;
   display: flex;
+  padding-top: 6rem;
   justify-content: center;
   justify-items: center;
   margin: auto;

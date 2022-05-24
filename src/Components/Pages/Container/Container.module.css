@@ -5,6 +5,7 @@
 }
 
 .titulo {
+  cursor: pointer;
   font-family: 'Sacramento', sans-serif;
   margin-bottom: -4.2rem;
   font-size: 3rem;

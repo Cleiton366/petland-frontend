@@ -1,18 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap');
 
 * {
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  display: grid;
-  gap: 20px;
-  min-height: 30.5rem;
-  margin: 3rem auto;
-  border: 1px solid #98d4ca;
-  border-radius: 0.5rem;
-  background-color: #98d4ca;
+.content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: x-large;
+  text-align: center;
+  padding-top: 1.7rem;
 }
 
-.header {
+.contentFluid {
+  cursor: pointer;
+  background-color: #a3dcd2;
+  min-height: 22rem;
+  border: 1px solid #a3dcd2;
+  border-radius: 10px;
+  width: 15rem;
+}
+
+.contentFluid:hover {
+  transition: all 300ms;
+  background-color: #90dacd;
+  border: 2px solid #98d4ca;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.contentFluid p {
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+}
+
+.contentFluid img {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 10rem;
+  min-height: 10rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  max-width: 60rem;
+  justify-items: center;
+  margin: 1rem auto;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    display: table;
+  }
+  .contentFluid {
+    margin-bottom: 1.5rem;
+  }
 }
