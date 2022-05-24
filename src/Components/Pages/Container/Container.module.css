@@ -34,12 +34,19 @@ img {
   border: 1px solid #a3dcd2;
   border-radius: 0.4rem;
 }
+
+.back1 {
+  display: flex;
+  max-height: 3rem;
+}
+
 .header {
   background-color: #98d4ca;
   text-align: center;
   margin: auto;
   padding: 1rem;
 }
+
 body {
   background-color: #cce7e7;
 }

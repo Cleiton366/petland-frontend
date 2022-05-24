@@ -1,6 +1,7 @@
 import styles from './Container.module.css'
 import FotoPerfil from '../../assets/FotoPerfil.png'
 import { Link } from 'react-router-dom'
+import Back1 from '../../assets/Back1.png'
 
 const Container = props => {
   return (
@@ -22,6 +23,7 @@ const Container = props => {
             </div>
             <p>Usuario</p>
           </div>
+          <div className={styles.imgBack}></div>
         </div>
       </div>
       {props.children}
