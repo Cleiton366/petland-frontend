@@ -35,6 +35,12 @@ function Search() {
   return (
     <div>
       <div>
+        <div>Show pets in my:</div>
+        <button type="button">City</button>
+        <button type="button">State</button>
+        <button type="button">Everywhere</button>
+      </div>
+      <div>
         {petList}
       </div>
     </div>
