@@ -32,7 +32,6 @@ function Search() {
     })();
   }, [pets]);
 
-  console.log(loading);
   let petList;
   if (pets.length === 0) {
     if (loading) {
