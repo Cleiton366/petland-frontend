@@ -14,20 +14,7 @@ function Rotas() {
       <Routes>
         <Route exact path="/" element={<Index />} />
         <Route exact path="/Home" element={<Home />} />
-        <Route
-          exact
-          path="/backroute"
-          element={
-(
-  <div>
-    <Link to="/search/cat/everywhere">Go to search</Link>
-  </div>
-)
-        }
-        />
         <Route path="/search/:animalType/:searchLocation" element={<Search />} />
-      </Routes>
-      <Routes>
         <Route exact path="/UserProfile" element={<UserProfile />} />
       </Routes>
     </Router>
