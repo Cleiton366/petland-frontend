@@ -9,7 +9,7 @@ export default function AnimalPreview({ pet }) {
   } = pet;
 
   return (
-    <div className={`${style.animalPreview} roboto d-flex align-items-center m-2`}>
+    <div className={`${style.animalPreview} roboto d-flex align-items-center m-2 shadow-item`}>
       <div className={`${style.apContent} d-flex align-middle`}>
         <img
           className={`${style.apImage} img-fluid align-middle mx-auto`}
