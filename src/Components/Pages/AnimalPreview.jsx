@@ -20,7 +20,7 @@ export default function AnimalPreview({ pet }) {
       <div className={`${style.apDescription} px-5 py-2`}>
         {`Name: ${petname}`}
         <br />
-        {`Age: ${age}`}
+        {`Age: ${age} ${(age === '1') ? 'Year' : 'Years'}`}
         <br />
         {`Location: ${city}, ${sstate}`}
         <br />
