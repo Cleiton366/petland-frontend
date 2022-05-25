@@ -15,8 +15,8 @@ function Container(props) {
             <p>Petland</p>
           </div>
         </Link>
-        <Link to="/UserProfile">
-          <div className={styles.bg}>
+        <div className={styles.bg}>
+          <Link to="/UserProfile">
             <div className={styles.perfil}>
               <div className={styles.img}>
                 <img
@@ -26,10 +26,10 @@ function Container(props) {
                 />
               </div>
               <p>{username}</p>
-            </div>
+              </div>
             <div className={styles.imgBack} />
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
       {children}
     </div>
