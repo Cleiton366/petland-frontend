@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 import styles from './Home.module.css';
 import Container from '../Container/Container';
 import CatImage from '../../assets/Cat2.png';
@@ -32,7 +33,9 @@ function Home() {
   }, []);
 
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return (
+      <ReactLoading className="align-self-center my-5 mx-auto" width="3em" height="min-content" type="spokes" color="black" />
+    );
   }
 
   return (
