@@ -5,32 +5,11 @@ import { Link } from 'react-router-dom';
 
 import style from './ProfilePreview.module.css';
 
-export default function ProfilePreview() {
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const {data, status} = await axios.get('http://localhost:4000/user-info', {
-          withCredentials: true,
-        })
-
-        if (status >= 200 && status < 300) {
-          setUser(data);
-          setLoading(false);
-        }
-      } catch (err) {
-        console.log(err.message);
-        setLoading(false);
-      }
-    })();
-  }, []);
-
-  if (loading) {
+export default function ProfilePreview({ user }) {
+  if (!user) {
     return (
       <Link to="/UserProfile" className={`${style.profilePreview} unstyled-link d-flex p-2`}>
-        <ReactLoading className="align-self-center" width="2em" height="min-content" type="spokes" color="black" />
+        <ReactLoading className="align-self-center" width="1.5em" height="min-content" type="spokes" color="black" />
       </Link>
     );
   }

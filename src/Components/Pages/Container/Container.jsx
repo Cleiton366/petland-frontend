@@ -26,7 +26,7 @@ function Container(props) {
                 />
               </div>
               <p>{username}</p>
-              </div>
+            </div>
             <div className={styles.imgBack} />
           </Link>
         </div>

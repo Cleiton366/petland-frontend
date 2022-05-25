@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 div {
   background-color: inherit;
 }
 
 html {
   font-family: "Poppins", sans-serif;
+  background-color: #cce7e7;
+}
+
+body {
   background-color: #cce7e7;
 }
 

@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './PageHeader.module.css';
 import ProfilePreview from './ProfilePreview';
 
-export default function PageHeader() {
+export default function PageHeader({ user }) {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,7 @@ export default function PageHeader() {
         Petland
       </Link>
       <div className="d-flex justify-content-end">
-        <ProfilePreview />
+        <ProfilePreview user={user} />
       </div>
     </div>
   );

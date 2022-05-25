@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
+import axios from 'axios';
 import style from './Search.module.css';
 import AnimalPreview from './AnimalPreview';
 import PageHeader from '../PageHeader';
 import Container from '../Container2';
-import axios from 'axios';
 
 function Search() {
   const { animalType, searchLocation } = useParams();
 
   const [pets, setPets] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,26 +31,43 @@ function Search() {
       // }
 
       try {
-        const {data, status} = await axios.get(url, {
+        const { data, status } = await axios.get(url, {
           withCredentials: true,
-        })
+        });
 
         if (status >= 200 && status < 300) {
           setPets(data);
           setLoading(false);
         }
       } catch (err) {
-        console.log(err.message);
+        console.log(err);
         setLoading(false);
       }
     })();
   }, [pets]);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data, status } = await axios.get('http://localhost:4000/user-info', {
+          withCredentials: true,
+        });
+
+        if (status >= 200 && status < 300) {
+          setUser(data);
+        }
+      } catch (err) {
+        console.log(err);
+        setUser({ dummy: null });
+      }
+    })();
+  }, []);
+
   let petList;
   if (pets.length === 0) {
     if (loading) {
       petList = (
-        <ReactLoading className="m-5" width="3em" type="spokes" color="black" />
+        <ReactLoading className="m-5" width="2em" type="spokes" color="black" />
       );
     } else {
       petList = (
@@ -63,7 +81,7 @@ function Search() {
   }
 
   return (
-    <Container>
+    <Container user={user}>
       <div className={style.search}>
         {/* <div className="d-flex p-2 align-items-center">
           <div className="p-2">Show pets in my:</div>
