@@ -12,6 +12,7 @@ function Search() {
   const { animalType, searchLocation } = useParams();
 
   const [pets, setPets] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,6 +46,23 @@ function Search() {
     })();
   }, [pets]);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const {data, status} = await axios.get('http://localhost:4000/user-info', {
+          withCredentials: true,
+        })
+
+        if (status >= 200 && status < 300) {
+          setUser(data);
+        }
+      } catch (err) {
+        console.log(err.message);
+        setUser({ dummy:null });
+      }
+    })();
+  }, []);
+
   let petList;
   if (pets.length === 0) {
     if (loading) {
@@ -63,7 +81,7 @@ function Search() {
   }
 
   return (
-    <Container>
+    <Container user={user}>
       <div className={style.search}>
         {/* <div className="d-flex p-2 align-items-center">
           <div className="p-2">Show pets in my:</div>
