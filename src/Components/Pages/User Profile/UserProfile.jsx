@@ -108,7 +108,7 @@ function UserProfile() {
         <div className={styles.petsOwned}>
           <h3>Pets Owned</h3>
           {
-            adoptedPets.map((pet) => {
+            adoptedPets.map((pet) => (
               <div key={pet.petid} className={styles.pet}>
                 <img src={pet.petphoto} alt="Animal" />
                 <div className={styles.petInfo}>
@@ -116,21 +116,21 @@ function UserProfile() {
                   <h3>{pet.age} Mounths</h3>
                 </div>
               </div>
-            })
+            ))
           }
         </div>
         <div className={styles.petsDonated}>
           <h3>Pets Donated</h3>
           {
-            donatedPets.map((pet) => {
+            donatedPets.map((pet) => (
               <div key={pet.petid} className={styles.pet}>
                 <img src={pet.petphoto} alt="Animal" />
                 <div className={styles.petInfo}>
                   <h3>{pet.petname}</h3>
-                  <h3>{pet.age} Mounths</h3>
+                <h3>{pet.age} Mounths</h3>
                 </div>
               </div>
-            })
+            ))
           }
         </div>
       </div>
