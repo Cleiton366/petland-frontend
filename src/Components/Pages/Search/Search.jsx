@@ -6,6 +6,7 @@ import style from './Search.module.css';
 import AnimalPreview from './AnimalPreview';
 import PageHeader from '../PageHeader';
 import Container from '../Container2';
+import axios from 'axios';
 
 function Search() {
   const { animalType, searchLocation } = useParams();
@@ -29,19 +30,11 @@ function Search() {
       // }
 
       try {
-        const res = await fetch(url, {
-          method: 'GET',
-          credentials: 'include',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json;charset=UTF-8',
-            'Access-Control-Allow-Credentials': true,
-          },
-        });
+        const {data, status} = await axios.get(url, {
+          withCredentials: true,
+        })
 
-        const data = await res.json();
-
-        if (res.status >= 200 && res.status < 300) {
+        if (status >= 200 && status < 300) {
           setPets(data);
           setLoading(false);
         }

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
@@ -11,19 +12,11 @@ export default function ProfilePreview() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:4000/user-info', {
-          method: 'GET',
-          credentials: 'include',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json;charset=UTF-8',
-            'Access-Control-Allow-Credentials': true,
-          },
-        });
+        const {data, status} = await axios.get('http://localhost:4000/user-info', {
+          withCredentials: true,
+        })
 
-        const data = await res.json();
-
-        if (res.status >= 200 && res.status < 300) {
+        if (status >= 200 && status < 300) {
           setUser(data);
           setLoading(false);
         }

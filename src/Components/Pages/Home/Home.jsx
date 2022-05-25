@@ -5,6 +5,7 @@ import Container from '../Container/Container';
 import CatImage from '../../assets/Cat2.png';
 import Dog1 from '../../assets/Dog1.png';
 import Dog2 from '../../assets/Dog2.png';
+import axios from 'axios';
 
 function Home() {
   // this is only for testing getting user information from backend
@@ -13,17 +14,11 @@ function Home() {
 
   // this is only for testing getting user information from backend
   async function userInfo() {
-    const res = await fetch('http://localhost:4000/user-info', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
+    const {data, status} = await axios.get('http://localhost:4000/user-info', {
+      withCredentials: true,
+    })
 
-    setUser(await res.json());
+    setUser(data);
     setLoading(false);
   }
 
