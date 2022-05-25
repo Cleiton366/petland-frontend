@@ -109,12 +109,12 @@ function UserProfile() {
           <h3>Pets Owned</h3>
           {
             adoptedPets.map((pet) => {
-              <div className={styles.pet}>
-              <img src={pet.petphoto} alt="Animal" />
-              <div className={styles.petInfo}>
-                <h3>{pet.petname}</h3>
-                <h3>{pet.age} Mounths</h3>
-              </div>
+              <div key={pet.petid} className={styles.pet}>
+                <img src={pet.petphoto} alt="Animal" />
+                <div className={styles.petInfo}>
+                  <h3>{pet.petname}</h3>
+                  <h3>{pet.age} Mounths</h3>
+                </div>
               </div>
             })
           }
@@ -123,12 +123,12 @@ function UserProfile() {
           <h3>Pets Donated</h3>
           {
             donatedPets.map((pet) => {
-              <div className={styles.pet}>
-              <img src={pet.petphoto} alt="Animal" />
-              <div className={styles.petInfo}>
-                <h3>{pet.petname}</h3>
-                <h3>{pet.age} Mounths</h3>
-              </div>
+              <div key={pet.petid} className={styles.pet}>
+                <img src={pet.petphoto} alt="Animal" />
+                <div className={styles.petInfo}>
+                  <h3>{pet.petname}</h3>
+                  <h3>{pet.age} Mounths</h3>
+                </div>
               </div>
             })
           }
