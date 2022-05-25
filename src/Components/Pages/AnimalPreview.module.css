@@ -13,12 +13,12 @@
 }
 
 .apContent {
-  width: 40vw;
   max-height: 0;
   overflow: visible;
   transform: translateY(50%);
 }
 
+.apContent,
 .apDescription {
   width: 40vw;
 }

@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 
 import axios from 'axios';
 import style from './Search.module.css';
-import AnimalPreview from './AnimalPreview';
+import AnimalPreview from '../AnimalPreview';
 import PageHeader from '../PageHeader';
 import Container from '../Container2';
 
