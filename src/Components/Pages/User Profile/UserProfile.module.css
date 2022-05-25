@@ -65,6 +65,7 @@
 
 .pet {
   padding-bottom: 15px;
+  display: inline-block;
 }
 
 .pet img {
