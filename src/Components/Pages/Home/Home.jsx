@@ -3,7 +3,11 @@ import Container from '../Container/Container'
 import CatImage from '../../assets/Cat2.png'
 import Dog1 from '../../assets/Dog1.png'
 import Dog2 from '../../assets/Dog2.png'
+import { useState } from 'react'
 const Home = () => {
+
+  const [user, setUser] = useState(null)
+  const [isLoading, setLoading] = useState(true);
 
   //this is only for testing getting user information from backend
   async function userInfo() {
@@ -17,12 +21,18 @@ const Home = () => {
       }
     });
 
-    const user = await res.json();
-    console.log(user);
+    setUser(await res.json())
+    setLoading(false)
   }
   
+  userInfo().then(() => {
+    
+  })
+  if (isLoading) {
+    return <div className="App">Loading...</div>;
+  }
   return (
-    <Container>
+    <Container username={user.username} avatar={user.avatarurl}>
       <div className={styles.content} onLoad={userInfo}>
         <h1>What do you want to do?</h1>
         <div className={styles.cards}>

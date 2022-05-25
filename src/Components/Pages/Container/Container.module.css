@@ -40,6 +40,15 @@ img {
   margin: auto;
   padding: 1rem;
 }
+
+.header a{
+  text-decoration: none;
+}
+
+.header img{
+  border-radius: 50%;
+}
+
 body {
   background-color: #cce7e7;
 }
