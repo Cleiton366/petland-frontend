@@ -1,122 +1,137 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
 import styles from './UserProfile.module.css';
-import Container from '../Container/Container';
+import Container from '../Container2';
 import Foto from '../../assets/FotoPerfil.png';
 import Cat from '../../assets/Cat.jpg';
 
 function UserProfile() {
   const [user, setUser] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const [donatedPets, setDonatedPets] = useState(null);
+  const [adoptedPets, setAdoptedPets] = useState(null);
 
-  // this is only for testing getting user information from backend
-  async function userInfo() {
-    const res = await fetch('http://localhost:4000/user-info', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
+  const getUser = async () => {
+    try {
+      const { data, status } = await axios.get('http://localhost:4000/user-info', {
+        withCredentials: true,
+      });
 
-    setUser(await res.json());
-    setLoading(false);
+      if (status >= 200 && status < 300) {
+        setUser(data);
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+      setUser({ dummy: null });
+    }
+    return { dummy: null };
+  };
+
+  const getDonatedPets = async (userid) => {
+    try {
+      const { data, status } = await axios.get('http://localhost:4000/donatedPets', {
+        withCredentials: true,
+        headers: { userid },
+      });
+
+      if (status >= 200 && status < 300) {
+        setDonatedPets(data);
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+      setDonatedPets([null]);
+    }
+    return [null];
+  };
+
+  const getAdoptedPets = async (userid) => {
+    try {
+      const { data, status } = await axios.get('http://localhost:4000/donatedPets', {
+        withCredentials: true,
+        headers: { userid },
+      });
+
+      if (status >= 200 && status < 300) {
+        setAdoptedPets(data);
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+      setAdoptedPets([null]);
+    }
+    return [null];
+  };
+
+  useEffect(() => {
+    (async () => {
+      const { id } = await getUser();
+      const p1 = getDonatedPets(id);
+      const p2 = getAdoptedPets(id);
+
+      await p1;
+      await p2;
+    })();
+  }, []);
+
+  if (!user) {
+    return (
+      <ReactLoading className="align-self-center my-5 mx-auto" width="3em" height="min-content" type="spokes" color="black" />
+    );
+  }
+  if (!donatedPets) {
+    return (
+      <ReactLoading className="align-self-center my-5 mx-auto" width="3em" height="min-content" type="spokes" color="black" />
+    );
+  }
+  if (!adoptedPets) {
+    return (
+      <ReactLoading className="align-self-center my-5 mx-auto" width="3em" height="min-content" type="spokes" color="black" />
+    );
   }
 
-  async function donatedPets() {
-    const res = await fetch('http://localhost:4000/donatedPets', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-        userid: user.id,
-      },
-    });
-    console.log(await res);
-  }
-
-  async function ownedPets() {
-    const res = await fetch('http://localhost:4000/userPets', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-        userid: user.id,
-      },
-    });
-    console.log(await res.json);
-  }
-
-  userInfo().then(() => {
-    console.log(user);
-  });
-
-  donatedPets().then(() => {
-
-  });
-
-  ownedPets().then(() => {
-
-  });
-
-  if (isLoading) {
-    return <div className="App">Loading...</div>;
-  }
+  const { username, avatarurl, email } = user;
 
   return (
-    <Container username={user.username} avatar={user.avatarurl}>
+    <Container user={user}>
       <div className={styles.userInfo}>
         <div className={styles.userImage}>
-          <img src={user.avatarurl} />
-          <h3>{user.username}</h3>
+          <img src={avatarurl} alt="Profile preview" />
+          <h3>{username}</h3>
         </div>
         <div className={styles.userInfos}>
-          <h4>37 Years</h4>
-          <h4>Utah, Richfield</h4>
-          <h4>Pets Doneted: 1</h4>
-          <h4>Pets Owned: 3</h4>
-          <h4>555-55554</h4>
+          <h4>{email}</h4>
         </div>
       </div>
       <div className={styles.pets}>
         <div className={styles.petsOwned}>
           <h3>Pets Owned</h3>
-          <div className={styles.pet}>
-            <img src={Cat} />
-            <div className={styles.petInfo}>
-              <h3>Cat</h3>
-              <h3>6 Mounths</h3>
-            </div>
-          </div>
-          <div className={styles.pet}>
-            <img src={Cat} />
-            <div className={styles.petInfo}>
-              <h3>Cat</h3>
-              <h3>6 Mounths</h3>
-            </div>
-          </div>
-          <div className={styles.pet}>
-            <img src={Cat} />
-            <div className={styles.petInfo}>
-              <h3>Cat</h3>
-              <h3>6 Mounths</h3>
-            </div>
-          </div>
+          {
+            adoptedPets.map((pet) => {
+              <div className={styles.pet}>
+              <img src={pet.petphoto} alt="Animal" />
+              <div className={styles.petInfo}>
+                <h3>{pet.petname}</h3>
+                <h3>{pet.age} Mounths</h3>
+              </div>
+              </div>
+            })
+          }
         </div>
         <div className={styles.petsDonated}>
           <h3>Pets Donated</h3>
-          <div className={styles.pet}>
-            <img src={Cat} />
-            <div className={styles.petInfo}>
-              <h3>Cat</h3>
-              <h3>6 Mounths</h3>
-            </div>
-          </div>
+          {
+            donatedPets.map((pet) => {
+              <div className={styles.pet}>
+              <img src={pet.petphoto} alt="Animal" />
+              <div className={styles.petInfo}>
+                <h3>{pet.petname}</h3>
+                <h3>{pet.age} Mounths</h3>
+              </div>
+              </div>
+            })
+          }
         </div>
       </div>
     </Container>

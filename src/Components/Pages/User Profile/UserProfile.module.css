@@ -4,10 +4,6 @@
   overflow: auto;
 }
 
-img{
-  width: 50%;
-}
-
 .container {
   display: grid;
   gap: 20px;
