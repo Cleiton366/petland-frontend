@@ -4,6 +4,10 @@
   overflow: auto;
 }
 
+img{
+  width: 50%;
+}
+
 .container {
   display: grid;
   gap: 20px;
@@ -33,7 +37,7 @@
 .userInfos {
   float: right;
   text-align: center;
-  padding: 80px;
+  padding: 5%;
 }
 
 .userImage {
@@ -42,12 +46,13 @@
 }
 
 .userInfo img {
-  width: 300px;
+  width: 150px;
   border-radius: 50%;
 }
 
 .pets {
   font-family: "Roboto Mono", sans-serif;
+  font-size: 50%;
 }
 
 .petsOwned {
@@ -67,14 +72,14 @@
 }
 
 .pet img {
-  width: 100%;
+  width: 50%;
   float: left;
   border-radius: 10px;
 }
 
 .petInfo {
   padding-left: 5%;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .header {
