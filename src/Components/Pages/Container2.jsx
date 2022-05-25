@@ -7,9 +7,7 @@ import Back1 from '../assets/Back1.png';
 import style from './Container2.module.css';
 import PageHeader from './PageHeader';
 
-function Container(props) {
-  const { children } = props;
-
+function Container({ children }) {
   return (
     <div className={style.container}>
       <PageHeader />
@@ -21,7 +19,3 @@ function Container(props) {
 }
 
 export default Container;
-
-Container.propTypes = {
-  children: PropTypes.node.isRequired,
-};

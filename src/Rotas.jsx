@@ -5,6 +5,7 @@ import {
 
 import Home from './Components/Pages/Home/Home';
 import Index from './Components/Pages/Index/Index';
+import UserProfile from './Components/Pages/User Profile/UserProfile';
 import Search from './Components/Pages/Search/Search';
 
 function Rotas() {
@@ -25,6 +26,9 @@ function Rotas() {
         }
         />
         <Route path="/search/:animalType/:searchLocation" element={<Search />} />
+      </Routes>
+      <Routes>
+        <Route exact path="/UserProfile" element={<UserProfile />} />
       </Routes>
     </Router>
   );

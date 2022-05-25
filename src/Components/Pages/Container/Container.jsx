@@ -6,7 +6,7 @@ import FotoPerfil from '../../assets/FotoPerfil.png';
 import Back1 from '../../assets/Back1.png';
 
 function Container(props) {
-  const { children } = props;
+  const { children, avatar, username } = props;
 
   return (
     <div className={styles.container}>
@@ -16,19 +16,21 @@ function Container(props) {
             <p>Petland</p>
           </div>
         </Link>
-        <div className={styles.bg}>
-          <div className={styles.perfil}>
-            <div className={styles.img}>
-              <img
-                src={FotoPerfil}
-                alt="Foto do perfil"
-                className={styles.foto}
-              />
+        <Link to="/UserProfile">
+          <div className={styles.bg}>
+            <div className={styles.perfil}>
+              <div className={styles.img}>
+                <img
+                  src={avatar}
+                  alt="Foto do perfil"
+                  className={styles.foto}
+                />
+              </div>
+              <p>{username}</p>
             </div>
-            <p>Usuario</p>
+            <div className={styles.imgBack} />
           </div>
-          <div className={styles.imgBack} />
-        </div>
+        </Link>
       </div>
       {children}
     </div>

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap");
+
+.todo {
+  overflow: auto;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  min-height: 30.5rem;
+  margin: 3rem auto;
+  border: 1px solid #98d4ca;
+  border-radius: 0.5rem;
+  background-color: #98d4ca;
+  overflow: scroll;
+}
+
+.userInfo {
+  font-family: "Roboto Mono", sans-serif;
+  background-color: #98d4ca;
+  width: 350px;
+  height: 230px;
+  border: 1px solid #98d4ca;
+  border-radius: 0.4rem;
+  margin: auto;
+  width: 50%;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.userInfos {
+  float: right;
+  text-align: center;
+  padding: 80px;
+}
+
+.userImage {
+  float: left;
+  padding: 25px;
+}
+
+.userInfo img {
+  width: 300px;
+  border-radius: 50%;
+}
+
+.pets {
+  font-family: "Roboto Mono", sans-serif;
+}
+
+.petsOwned {
+  width: 45%;
+  float: left;
+  padding-left: 15%;
+}
+
+.petsDonated {
+  width: 45%;
+  float: right;
+  padding-right: 15%;
+}
+
+.pet {
+  padding-bottom: 15px;
+}
+
+.pet img {
+  width: 100%;
+  float: left;
+  border-radius: 10px;
+}
+
+.petInfo {
+  padding-left: 5%;
+  padding-top: 10%;
+}
+
+.header {
+}

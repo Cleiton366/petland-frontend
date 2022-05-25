@@ -51,7 +51,7 @@
     },
     "extends": [
       "plugin:react/recommended",
-      "airbnb"
+      "eslint:recommended"
     ],
     "parserOptions": {
       "ecmaFeatures": {
@@ -66,7 +66,8 @@
     "rules": {
       "linebreak-style": "off",
       "react/jsx-filename-extension": "off",
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "react/prop-types": "off"
     }
   }
 }

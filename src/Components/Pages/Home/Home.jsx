@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
-import Container2 from '../Container2';
+import Container from '../Container/Container';
 import CatImage from '../../assets/Cat2.png';
 import Dog1 from '../../assets/Dog1.png';
 import Dog2 from '../../assets/Dog2.png';
 
 function Home() {
+  // this is only for testing getting user information from backend
+  const [user, setUser] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
   // this is only for testing getting user information from backend
   async function userInfo() {
     const res = await fetch('http://localhost:4000/user-info', {
@@ -19,12 +23,19 @@ function Home() {
       },
     });
 
-    const user = await res.json();
-    console.log(user);
+    setUser(await res.json());
+    setLoading(false);
+  }
+
+  userInfo().then(() => {
+
+  });
+  if (isLoading) {
+    return <div className="App">Loading...</div>;
   }
 
   return (
-    <Container2>
+    <Container username={user.username} avatar={user.avatarurl}>
       <div className={styles.content} onLoad={userInfo}>
         <h1>What do you want to do?</h1>
         <div className={styles.cards}>
@@ -49,7 +60,7 @@ function Home() {
           </Link>
         </div>
       </div>
-    </Container2>
+    </Container>
   );
 }
 

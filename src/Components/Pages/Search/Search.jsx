@@ -5,7 +5,7 @@ import ReactLoading from 'react-loading';
 import style from './Search.module.css';
 import AnimalPreview from './AnimalPreview';
 import PageHeader from '../PageHeader';
-import Container2 from '../Container2';
+import Container from '../Container2';
 
 function Search() {
   const { animalType, searchLocation } = useParams();
@@ -70,7 +70,7 @@ function Search() {
   }
 
   return (
-    <Container2>
+    <Container>
       <div className={style.search}>
         {/* <div className="d-flex p-2 align-items-center">
           <div className="p-2">Show pets in my:</div>
@@ -82,7 +82,7 @@ function Search() {
           {petList}
         </div>
       </div>
-    </Container2>
+    </Container>
   );
 }
 
