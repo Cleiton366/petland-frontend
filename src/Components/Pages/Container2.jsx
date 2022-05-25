@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import FotoPerfil from '../assets/FotoPerfil.png';
 import Back1 from '../assets/Back1.png';
 

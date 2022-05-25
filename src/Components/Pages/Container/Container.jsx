@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styles from './Container.module.css';
 import FotoPerfil from '../../assets/FotoPerfil.png';
 import Back1 from '../../assets/Back1.png';
@@ -38,7 +37,3 @@ function Container(props) {
 }
 
 export default Container;
-
-Container.propTypes = {
-  children: PropTypes.node.isRequired,
-};
