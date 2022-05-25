@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom';
 
-import './ProfilePreview.css';
+import style from './ProfilePreview.module.css';
 
 export default function ProfilePreview() {
   const [user, setUser] = useState({});
@@ -11,9 +11,19 @@ export default function ProfilePreview() {
   useEffect(() => {
     (async () => {
       try {
-        const { data, status } = await axios.get('/user-info');
+        const res = await fetch('http://localhost:4000/user-info', {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Access-Control-Allow-Credentials': true,
+          },
+        });
 
-        if (status >= 200 && status < 300) {
+        const data = await res.json();
+
+        if (res.status >= 200 && res.status < 300) {
           setUser(data);
           setLoading(false);
         }
@@ -26,18 +36,18 @@ export default function ProfilePreview() {
 
   if (loading) {
     return (
-      <div className="profile-preview d-flex p-2">
+      <Link to="/profile" className={`${style.profilePreview} unstyled-link d-flex p-2`}>
         <ReactLoading className="align-self-center" width="2em" height="min-content" type="spokes" color="black" />
-      </div>
+      </Link>
     );
   }
 
   const { username, avatarurl } = user;
 
   return (
-    <div className="profile-preview d-flex p-2">
+    <Link to="/profile" className={`${style.profilePreview} unstyled-link d-flex p-2`}>
       <img className="rounded-circle h-100" src={avatarurl || 'https://i.imgur.com/gJmbboJ.png'} alt="Profile preview" />
       {username ? (<div className="align-self-center px-2">{username}</div>) : null}
-    </div>
+    </Link>
   );
 }

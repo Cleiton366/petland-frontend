@@ -4,10 +4,7 @@ import axios from 'axios';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-import { serverToken, serverURL } from './keys/server';
-
-axios.defaults.baseURL = serverURL;
-axios.defaults.headers.common.authorization = serverToken;
+axios.defaults.baseURL = 'http://localhost:4000';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

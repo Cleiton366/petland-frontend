@@ -1,12 +1,12 @@
-.page-header {
+.pageHeader {
   background-color: #98d4ca;
 }
 
-.page-header > * {
+.pageHeader > * {
   flex: 1 1 0px;
 }
 
-.page-header-title {
+.pageHeaderTitle {
   font-family: "Sacramento", cursive;
   font-size: 5em;
   line-height: 1.2;
@@ -15,10 +15,10 @@
   background-color: transparent;
 }
 
-.header-back-button {
+.headerBackButton {
   font-size: 2.5em !important;
 }
 
-.header-back-button:active {
+.headerBackButton:active {
   background-color: transparent !important;
 }

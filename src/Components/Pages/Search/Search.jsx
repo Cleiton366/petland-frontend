@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
-import './Search.css';
+import style from './Search.module.css';
 import AnimalPreview from './AnimalPreview';
 import PageHeader from '../PageHeader';
+import Container2 from '../Container2';
 
 function Search() {
   const { animalType, searchLocation } = useParams();
@@ -18,7 +18,7 @@ function Search() {
       // const city = 'chorozinho';
       // const state = 'ceara';
 
-      const url = `/pet/${animalType}/list/all`;
+      const url = `http://localhost:4000/pet/${animalType}/all`;
 
       // if (searchLocation === 'city') {
       //   url += `?city=${city}&state=${state}`;
@@ -29,9 +29,19 @@ function Search() {
       // }
 
       try {
-        const { data, status } = await axios.get(url);
+        const res = await fetch(url, {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Access-Control-Allow-Credentials': true,
+          },
+        });
 
-        if (status >= 200 && status < 300) {
+        const data = await res.json();
+
+        if (res.status >= 200 && res.status < 300) {
           setPets(data);
           setLoading(false);
         }
@@ -60,9 +70,8 @@ function Search() {
   }
 
   return (
-    <div>
-      <PageHeader />
-      <div className="search">
+    <Container2>
+      <div className={style.search}>
         {/* <div className="d-flex p-2 align-items-center">
           <div className="p-2">Show pets in my:</div>
           <button type="button" className="btn btn-primary p-1 px-3 mx-1">City</button>
@@ -73,7 +82,7 @@ function Search() {
           {petList}
         </div>
       </div>
-    </div>
+    </Container2>
   );
 }
 
