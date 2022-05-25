@@ -32,7 +32,7 @@ export default function ProfilePreview() {
         setLoading(false);
       }
     })();
-  }, [user]);
+  }, []);
 
   if (loading) {
     return (
