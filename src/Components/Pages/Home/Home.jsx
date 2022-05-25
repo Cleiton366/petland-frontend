@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import styles from './Home.module.css';
-import Container from '../Container/Container';
+import Container from '../Container2';
 import CatImage from '../../assets/Cat2.png';
 import Dog1 from '../../assets/Dog1.png';
 import Dog2 from '../../assets/Dog2.png';
@@ -39,7 +39,7 @@ function Home() {
   }
 
   return (
-    <Container username={user.username} avatar={user.avatarurl}>
+    <Container user={user}>
       <div className={styles.content}>
         <h1>What do you want to do?</h1>
         <div className={styles.cards}>
