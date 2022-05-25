@@ -7,7 +7,7 @@ import ProfilePreview from './ProfilePreview';
 
 export default function PageHeader({ user }) {
   const navigate = useNavigate();
-  
+
   return (
     <div className={`${style.pageHeader} d-flex align-items-center justify-content-between px-5 py-2`}>
       <div className="d-flex justify-content-start">
