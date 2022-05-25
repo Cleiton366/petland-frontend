@@ -113,7 +113,7 @@ function UserProfile() {
                 <img src={pet.petphoto} alt="Animal" />
                 <div className={styles.petInfo}>
                   <h3>{pet.petname}</h3>
-                  <h3>{pet.age} Mounths</h3>
+                  <h3>{`${pet.age} Years`}</h3>
                 </div>
               </div>
             ))
@@ -127,7 +127,7 @@ function UserProfile() {
                 <img src={pet.petphoto} alt="Animal" />
                 <div className={styles.petInfo}>
                   <h3>{pet.petname}</h3>
-                <h3>{pet.age} Mounths</h3>
+                  <h3>{`${pet.age} Years`}</h3>
                 </div>
               </div>
             ))
