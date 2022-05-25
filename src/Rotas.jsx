@@ -14,12 +14,12 @@ function Rotas() {
           element={
 (
   <div>
-    <Link to="/search/cat">Go to search</Link>
+    <Link to="/search/cat/everywhere">Go to search</Link>
   </div>
 )
         }
         />
-        <Route path="/search/:animalType" element={<Search />} />
+        <Route path="/search/:animalType/:searchLocation" element={<Search />} />
       </Routes>
     </Router>
   );
