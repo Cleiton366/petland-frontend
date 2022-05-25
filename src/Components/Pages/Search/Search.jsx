@@ -67,7 +67,7 @@ function Search() {
   if (pets.length === 0) {
     if (loading) {
       petList = (
-        <ReactLoading className="m-5" width="3em" type="spokes" color="black" />
+        <ReactLoading className="m-5" width="2em" type="spokes" color="black" />
       );
     } else {
       petList = (
