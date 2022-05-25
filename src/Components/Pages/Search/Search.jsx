@@ -8,18 +8,28 @@ import AnimalPreview from './AnimalPreview';
 import PageHeader from '../PageHeader';
 
 function Search() {
-  const { animalType } = useParams();
-
-  const city = 'chorozinho';
-  const state = 'ceara';
+  const { animalType, searchLocation } = useParams();
 
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
+      // const city = 'chorozinho';
+      // const state = 'ceara';
+
+      const url = `/pet/${animalType}/list/all`;
+
+      // if (searchLocation === 'city') {
+      //   url += `?city=${city}&state=${state}`;
+      // } else if (searchLocation === 'state') {
+      //   url += `?state=${state}`;
+      // } else if (searchLocation === 'everywhere') {
+      //   url += `/all`;
+      // }
+
       try {
-        const { data, status } = await axios.get(`/pet/${animalType}/list?city=${city}&state=${state}`);
+        const { data, status } = await axios.get(url);
 
         if (status >= 200 && status < 300) {
           setPets(data);
@@ -53,12 +63,12 @@ function Search() {
     <div>
       <PageHeader />
       <div className="search">
-        <div className="d-flex p-2 align-items-center">
+        {/* <div className="d-flex p-2 align-items-center">
           <div className="p-2">Show pets in my:</div>
           <button type="button" className="btn btn-primary p-1 px-3 mx-1">City</button>
           <button type="button" className="btn btn-primary p-1 px-3 mx-1">State</button>
           <button type="button" className="btn btn-primary p-1 px-3 mx-1">Everywhere</button>
-        </div>
+        </div> */}
         <div className="d-flex flex-column p-2 align-items-center">
           {petList}
         </div>
