@@ -14,10 +14,11 @@ export default function ProfilePreview({ user }) {
     );
   }
 
-  const { username, avatarurl } = user;
+  const { username, avatarurl, id } = user;
 
   return (
     <Link to="/UserProfile" className={`${style.profilePreview} unstyled-link d-flex p-2`}>
+      <p  className={style.userId} id={id}></p>
       <img className="rounded-circle h-100" src={avatarurl || 'https://i.imgur.com/gJmbboJ.png'} alt="Profile preview" />
       {username ? (<div className="align-self-center px-2">{username}</div>) : null}
     </Link>
