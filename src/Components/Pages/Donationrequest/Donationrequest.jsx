@@ -7,6 +7,23 @@ import Container from '../Container2';
 function Donationrequest() {
   const [user, setUser] = useState();
 
+  const getUser = async () => {
+    try {
+      const { data, status } = await axios.get('http://localhost:4000/user-info', {
+        withCredentials: true,
+      });
+
+      if (status >= 200 && status < 300) {
+        setUser(data);
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+      setUser({ dummy: null });
+    }
+    return { dummy: null };
+  };
+
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -27,41 +44,37 @@ function Donationrequest() {
     })();
   }, [list]);
 
-  const [accept, setAccept] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const url = 'http://localhost:4000/donationrequest/accept';
-      try {
-        const { data, status } = await axios.post(url, {
-          withCredentials: true,
-        });
-        if (status >= 200 && status < 300) {
-          setAccept(data);
-        }
-      } catch (err) {
-        console.log(err.message);
+  const aceitar = async () => {
+    const url = 'http://localhost:4000/donationrequest/accept';
+    try {
+      const { data, status } = await axios.post(url, {
+        withCredentials: true,
+      });
+      if (status >= 200 && status < 300) {
+        return (data);
       }
-    })();
-  }, [accept]);
+    } catch (err) {
+      console.log(err.message);
+    }
 
-  const [reject, setReject] = useState([]);
+    return { dummy: null };
+  };
 
-  useEffect(() => {
-    (async () => {
-      const url = 'http://localhost:4000/donationrequest/reject';
-      try {
-        const { data, status } = await axios.delete(url, {
-          withCredentials: true,
-        });
-        if (status >= 200 && status < 300) {
-          setReject(data);
-        }
-      } catch (err) {
-        console.log(err.message);
+  const deletar = async () => {
+    const url = 'http://localhost:4000/donationrequest/reject';
+    try {
+      const { data, status } = await axios.delete(url, {
+        withCredentials: true,
+      });
+      if (status >= 200 && status < 300) {
+        return (data);
       }
-    })();
-  }, [reject]);
+    } catch (err) {
+      console.log(err.message);
+    }
+
+    return { dummy: null };
+  };
 
   return (
     <Container user={user}>
@@ -79,7 +92,7 @@ function Donationrequest() {
           <p>
             <span id="62b21ad8b34ac">wants to adopt PetName</span>
           </p>
-          <div>
+          <div className="botoes">
             <button type="submit" className={styles.Accept}>Accept</button>
             <button type="submit" className={styles.Reject}>Reject</button>
           </div>

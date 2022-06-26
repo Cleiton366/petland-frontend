@@ -84,26 +84,26 @@
     transition:  background 0.5a case-in-out;
   }
   
-  button.Accept{
+  .Accept{
     background-color: #15D2B3;
   }
   
-  button.Accept:hover{
+  .Accept:hover{
     background-color: #0d8a75;
   }
   
-  button.Accept:active{
+  .Accept:active{
     background-color: #0d8a13;
   }
   
-  button.Reject{
+  .Reject{
     background-color: #FF6969;
   }
   
-  button.Reject:hover{
+  .Reject:hover{
     background-color: #b44848;
   }
   
-  button.Reject:active{
+  .Reject:active{
     background-color: #ff0000;
   }
