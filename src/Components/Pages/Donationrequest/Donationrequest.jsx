@@ -7,23 +7,6 @@ import Container from '../Container2';
 function Donationrequest() {
   const [user, setUser] = useState();
 
-  const getUser = async () => {
-    try {
-      const { data, status } = await axios.get('http://localhost:4000/user-info', {
-        withCredentials: true,
-      });
-
-      if (status >= 200 && status < 300) {
-        setUser(data);
-        return data;
-      }
-    } catch (err) {
-      console.log(err);
-      setUser({ dummy: null });
-    }
-    return { dummy: null };
-  };
-
   const [list, setList] = useState([]);
 
   useEffect(() => {
