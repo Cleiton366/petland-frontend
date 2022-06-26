@@ -1,95 +1,92 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-//import { BsArrowLeft} from "react-icons/bs";
 import { BsBell } from "react-icons/bs";
 import styles from './Donationrequest.module.css'
 import Container from '../Container2'
 
 function Donationrequest() {
-    const [user, setUser] = useState();
+  const [user, setUser] = useState();
 
-    const getUser = async () => {
+  const getUser = async () => {
+      try {
+        const { data, status } = await axios.get('http://localhost:4000/user-info', {
+          withCredentials: true,
+        });
+  
+        if (status >= 200 && status < 300) {
+          setUser(data);
+          return data;
+        }
+      } catch (err) {
+        console.log(err);
+        setUser({ dummy: null });
+      }
+      return { dummy: null };
+  };
+
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+
+      (async () => {
+        
+        const url = 'http://localhost:4000/donationrequest/list'
+  
         try {
-          const { data, status } = await axios.get('http://localhost:4000/user-info', {
-            withCredentials: true,
-          });
-    
+          const { data, status } = await axios.get(url, {
+            withCredentials: true
+          })
           if (status >= 200 && status < 300) {
-            setUser(data);
-            return data;
+            setList(data)
+            //console.log(data);
+            return(data)
           }
         } catch (err) {
-          console.log(err);
-          setUser({ dummy: null });
+          console.log(err.message)
         }
-        return { dummy: null };
-    };
-
-    const [list, setList] = useState([]);
-
-    useEffect(() => {
-
-        (async () => {
-          
-          const url = 'http://localhost:4000/donationrequest/list'
-    
-          try {
-            const { data, status } = await axios.get(url, {
-              withCredentials: true
-            })
-            if (status >= 200 && status < 300) {
-              setList(data)
-              //console.log(data);
-              return(data)
-            }
-          } catch (err) {
-            console.log(err.message)
-          }
-        })()
+      })()
     }, [list])
 
     const [accept, setAccept] = useState([]);
 
     useEffect(() => {
 
-        (async () => {
-          
-          const url = 'http://localhost:4000/donationrequest/accept'
-    
-          try {
-            const { data, status } = await axios.post(url, {
-              withCredentials: true
-            })
-            if (status >= 200 && status < 300) {
-              setAccept(data)
-              //console.log(data);
-            }
-          } catch (err) {
-            console.log(err.message)
+      (async () => {
+        
+        const url = 'http://localhost:4000/donationrequest/accept'
+  
+        try {
+          const { data, status } = await axios.post(url, {
+            withCredentials: true
+          })
+          if (status >= 200 && status < 300) {
+            setAccept(data)
           }
-        })()
+        } catch (err) {
+          console.log(err.message)
+        }
+      })()
     }, [accept])
 
     const [reject, setReject] = useState([]);
 
     useEffect(() => {
 
-        (async () => {
-          
-          const url = `http://localhost:4000/donationrequest/reject/${id}`
-    
-          try {
-            const { data, status } = await axios.delete(url, {
-              withCredentials: true
-            })
-            if (status >= 200 && status < 300) {
-              setReject(data)
-              //console.log(data);
-            }
-          } catch (err) {
-            console.log(err.message)
+      (async () => {
+        
+        const url = `http://localhost:4000/donationrequest/reject/${id}`
+  
+        try {
+          const { data, status } = await axios.delete(url, {
+            withCredentials: true
+          })
+          if (status >= 200 && status < 300) {
+            setReject(data)
           }
-        })()
+        } catch (err) {
+          console.log(err.message)
+        }
+      })()
     }, [reject])
 
     return (
