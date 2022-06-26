@@ -1,0 +1,109 @@
+  img{
+    border-radius: 50%;
+    margin-right: 10px;;
+  }
+  
+  .perfil{
+    background-color: #CCE7E7;
+    width: 200px;
+    height: 55px;
+    margin-top: 7px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  div.setaEsquerda{
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    padding-left: 40px;
+  
+    font-size: 48px;
+  }
+  
+  body{
+    background-color: #CCE7E7;
+  }
+  
+  .sino{
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+  
+    margin-top: 50px;
+    margin-right: 100px;
+    width:50px;
+    height: 50px;
+    background-color:#0fa088;
+    border-radius: 50%;
+  }
+  
+  .requests{
+    margin-right: 0px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pedido{
+    clear: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 750px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #98D4CA;
+  }
+  
+  .perfil2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  p{
+    margin: 0px;
+  }
+  
+  .pedido button{
+    width: 100px;
+    height: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+  
+    -webkit-transition: background 0.5a case-in-out;
+    transition:  background 0.5a case-in-out;
+  }
+  
+  button.Accept{
+    background-color: #15D2B3;
+  }
+  
+  button.Accept:hover{
+    background-color: #0d8a75;
+  }
+  
+  button.Accept:active{
+    background-color: #0d8a13;
+  }
+  
+  button.Reject{
+    background-color: #FF6969;
+  }
+  
+  button.Reject:hover{
+    background-color: #b44848;
+  }
+  
+  button.Reject:active{
+    background-color: #ff0000;
+  }

@@ -7,6 +7,7 @@ import Home from './Components/Pages/Home/Home';
 import Index from './Components/Pages/Index/Index';
 import UserProfile from './Components/Pages/User Profile/UserProfile';
 import Search from './Components/Pages/Search/Search';
+import Donationrequest from './Components/Pages/Donationrequest/Donationrequest';
 
 function Rotas() {
   return (
@@ -16,6 +17,7 @@ function Rotas() {
         <Route exact path="/Home" element={<Home />} />
         <Route path="/search/:animalType/:searchLocation" element={<Search />} />
         <Route exact path="/UserProfile" element={<UserProfile />} />
+        <Route exact path="/Donationrequest" element={<Donationrequest />} />
       </Routes>
     </Router>
   );
