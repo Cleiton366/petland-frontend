@@ -34,4 +34,12 @@
 
 .donator {
   padding-top: 3rem;
+  display: flex;
+  justify-items: space-between;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.username {
+  margin-left: 0.5rem;
 }

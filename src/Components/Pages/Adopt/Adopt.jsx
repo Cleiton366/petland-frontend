@@ -14,7 +14,7 @@ function Adopt() {
   const [pet, setPet] = useState()
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
-    (async () => {
+    ;(async () => {
       const url = `http://localhost:4000/pet/${id}`
       try {
         const { data, status } = await axios.get(url, {
@@ -22,7 +22,6 @@ function Adopt() {
         })
         if (status >= 200 && status < 300) {
           setPet(data)
-          console.log(data)
         }
       } catch (err) {
         console.log(err.message)
@@ -56,7 +55,16 @@ function Adopt() {
             </div>
             {pet ? (
               <div className={styles.containerDonator}>
-                <div className={styles.donator}>Donator:</div>
+                <div className={styles.donator}>
+                  Donator:
+                  <div className={styles.donatorInfo}>
+                    <div className={styles.avatarurl}> {}</div>
+
+                    <div className={styles.username}>
+                      {pet.donatorInfo.username}
+                    </div>
+                  </div>
+                </div>
                 <div className={styles.buttonG1}>
                   <ButtonG value="Apply for adoption" />
                 </div>
