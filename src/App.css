@@ -1,21 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap');
 
 div {
   background-color: inherit;
 }
 
 html {
-  font-family: "Poppins", sans-serif;
-  background-color: #cce7e7;
-}
-
-body {
+  font-family: 'Poppins', sans-serif;
   background-color: #cce7e7;
 }
 
@@ -30,7 +20,7 @@ button {
   border-width: 0 !important;
   outline: none !important;
   box-shadow: none !important;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: small !important;
 }
 
@@ -39,7 +29,7 @@ button:active {
 }
 
 .roboto {
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .unstyled-link {

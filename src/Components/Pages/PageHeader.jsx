@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './PageHeader.module.css';
 import ProfilePreview from './ProfilePreview';
 
+
 export default function PageHeader({ user }) {
 
   async function headerBackBtnEvent() {
@@ -26,7 +27,7 @@ export default function PageHeader({ user }) {
         Petland
       </Link>
       <div className="d-flex justify-content-end">
-        <ProfilePreview user={user} />
+        <ProfilePreview />
       </div>
     </div>
   );
