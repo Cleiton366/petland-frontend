@@ -12,6 +12,8 @@ import { useParams } from 'react-router-dom'
 function Adopt() {
   const { id } = useParams()
   const [pet, setPet] = useState()
+  const [userId, setUserId] = useState()
+
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
     ;(async () => {
@@ -22,12 +24,27 @@ function Adopt() {
         })
         if (status >= 200 && status < 300) {
           setPet(data)
+          setUserId(localStorage.getItem('userId'))
         }
       } catch (err) {
         console.log(err.message)
       }
     })()
   }, [pet])
+
+  function handleAdoption() {
+    const url = 'http://localhost:4000/donationrequest/new'
+    axios.post(url, {
+      donatorId: pet.donatorid,
+      petId: pet.petId,
+      interrestedDoneeId: userId
+    })
+  }
+
+  function deletePet() {
+    const url = 'http://localhost:4000/pet/delete'
+    axios.delete(url, { petId: pet.petId })
+  }
 
   return (
     <div>
@@ -53,7 +70,7 @@ function Adopt() {
             <div className={styles.imgLine}>
               <img src={Line} alt="Linha" width="50%" />
             </div>
-            {pet ? (
+            {pet.donatorid != userId ? (
               <div className={styles.containerDonator}>
                 <div className={styles.donator}>
                   Donator:
@@ -66,7 +83,10 @@ function Adopt() {
                   </div>
                 </div>
                 <div className={styles.buttonG1}>
-                  <ButtonG value="Apply for adoption" />
+                  <ButtonG
+                    value="Apply for adoption"
+                    onClick={handleAdoption}
+                  />
                 </div>
               </div>
             ) : (
