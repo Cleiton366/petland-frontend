@@ -92,7 +92,7 @@ function Adopt() {
             ) : (
               <div className={styles.editPet}>
                 <div className={styles.ButtonR}>
-                  <ButtonR value="Delete" />
+                  <ButtonR value="Delete" onClick={deletePet} />
                 </div>
               </div>
             )}
