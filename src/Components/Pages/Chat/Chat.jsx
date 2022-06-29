@@ -24,7 +24,7 @@ function Chat() {
           <div className={styles.nameD}>Donator: Joao</div>
 
           <textarea name={styles.text} id="" cols="15  " rows="1">
-            digite
+            Menssage
           </textarea>
         </div>
       </div>

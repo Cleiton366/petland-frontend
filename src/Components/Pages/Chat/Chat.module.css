@@ -29,7 +29,7 @@ img {
 .chat {
   background-color: #d5f3ee;
   width: 20rem;
-  border-radius: 1rem;
+  border-radius: 1px 1px 1px 1px;
 }
 .chat .nameD {
   background-color: #98d4ca;
@@ -39,9 +39,15 @@ img {
 
 textarea {
   width: 20rem;
-  background-color: #a3dcd2;
-  padding-top: 14rem;
+  background-color: #98d4ca;
+  padding-top: 13.5rem;
+  resize: none;
 }
 
-.text {
+textarea:invalid {
+  border: 1px dashed red;
+}
+
+textarea:valid {
+  border: 1px solid #d5f3ee;
 }
