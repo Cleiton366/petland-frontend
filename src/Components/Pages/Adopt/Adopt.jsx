@@ -5,15 +5,12 @@ import axios from 'axios'
 import Container from '../Container2'
 import styles from './Adopt.module.css'
 import Line from '../../assets/Line1.png'
-import ButtonG from '../../Layout/Button/ButtonG'
-import ButtonR from '../../Layout/Button/ButtonR'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 
 function Adopt() {
   const { id } = useParams()
   const [pet, setPet] = useState()
-  const [userId, setUserId] = useState()
-  const navigate = useNavigate();
+  let [userId, setUserId] = useState()
 
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
@@ -23,9 +20,11 @@ function Adopt() {
         const { data, status } = await axios.get(url, {
           withCredentials: true
         })
+        setInterval(() => {}, 30000)
         if (data.petid) {
           setPet(data)
-          setUserId(localStorage.getItem('userId'))
+          setUserId(window.localStorage.getItem('userId'))
+          console.log(userId)
         }
       } catch (err) {
         console.log(err.message)
@@ -44,14 +43,14 @@ function Adopt() {
   }
 
   async function deletePet() {
+    const navigate = useNavigate()
     const url = 'http://localhost:4000/pet/delete'
-    await axios.delete(url, {
-      data : {
+    const { data } = await axios.delete(url, {
+      data: {
         petId: pet.petid
       }
-    });
-    console.log('pet deleted')
-    navigate(-1);
+    })
+    return navigate(-1)
   }
 
   return (
@@ -78,15 +77,13 @@ function Adopt() {
             <div className={styles.imgLine}>
               <img src={Line} alt="Linha" width="50%" />
             </div>
-            {pet.donatorid == userId ? (
+            {pet.donatorid != userId ? (
               <div className={styles.containerDonator}>
                 <div className={styles.donator}>
                   Donator:
                   <div className={styles.donatorInfo}>
                     <div className={styles.avatarurl}> {}</div>
-                    <div className={styles.username}>
-                      {pet.donatorInfo.username}
-                    </div>
+                    <div className={styles.username}></div>
                   </div>
                 </div>
                 <div className={styles.buttonG1}>
