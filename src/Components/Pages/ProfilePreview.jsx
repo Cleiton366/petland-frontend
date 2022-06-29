@@ -20,8 +20,8 @@ export default function ProfilePreview() {
           }
         )
         if (status >= 200 && status < 300) {
-          window.localStorage.setItem('userId', user.id)
           setUser(data)
+          window.localStorage.setItem('userId', user.id)
           setLoading(false)
         }
       } catch (err) {

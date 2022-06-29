@@ -87,13 +87,23 @@ function Adopt() {
                   </div>
                 </div>
                 <div className={styles.buttonG1}>
-                  <button onClick={handleAdoption}>Apply for adoption</button>
+                  <input
+                    type="button"
+                    onClick={handleAdoption}
+                    value="Apply for adoption"
+                    className={styles.btn_apply}
+                  />
                 </div>
               </div>
             ) : (
               <div className={styles.editPet}>
                 <div className={styles.ButtonR}>
-                  <button onClick={deletePet}> Delete</button>
+                  <input
+                    type="button"
+                    onClick={deletePet}
+                    value="Delet"
+                    className={styles.btn_delet}
+                  />
                 </div>
               </div>
             )}
