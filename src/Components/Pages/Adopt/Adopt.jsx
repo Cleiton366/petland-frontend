@@ -10,6 +10,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 function Adopt() {
   const { id } = useParams()
   const [pet, setPet] = useState()
+  const [petImg, setPetImg] = useState();
   let [userId, setUserId] = useState()
 
   useEffect(() => {
@@ -17,12 +18,16 @@ function Adopt() {
     ;(async () => {
       const url = `http://localhost:4000/pet/${id}`
       try {
-        const { data, status } = await axios.get(url, {
+        var { data, status } = await axios.get(url, {
           withCredentials: true
         })
         setInterval(() => {}, 30000)
         if (data.petid) {
           setPet(data)
+          var { data } = await axios.get(`http://localhost:4000/pet/${data.petid}/image`, {
+            withCredentials: true
+          })
+          setPetImg(data.downloadURL);
           setUserId(window.localStorage.getItem('userId'))
         }
       } catch (err) {
@@ -75,7 +80,7 @@ function Adopt() {
           <div className={styles.photo}>
             <img
               className={`img-fluid align-middle mx-auto`}
-              src={pet.petphoto || 'https://i.imgur.com/gJmbboJ.png'}
+              src={petImg || 'https://i.imgur.com/gJmbboJ.png'}
               alt="Logo do gato"
               width="30%"
             />
