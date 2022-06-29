@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto+Mono:wght@300&family=Sacramento&display=swap");
+
+.todo {
+  overflow: auto;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  min-height: 30.5rem;
+  margin: 3rem auto;
+  border: 1px solid #98d4ca;
+  border-radius: 0.5rem;
+  background-color: #98d4ca;
+  overflow: scroll;
+}
+
+.content{
+  margin-top: 20px;
+  font-family: "Roboto Mono", sans-serif;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "f a";
+}
+
+.form {
+  grid-area: a;
+}
+
+.itemForm {
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "l i";
+}
+
+.itemForm2 {
+  display: flex;
+  justify-content: center;
+}
+
+.itemLabel {
+  grid-area: l;
+  display: flex;
+  justify-content: right;
+  padding-right: 5px;
+}
+
+.itemLabel2 {
+  margin-left: 5px;
+}
+
+.itemInput {
+  grid-area: i;
+}
+
+.submitButton{
+  height: 50px;
+  width: 70px;
+}
+
+.imagePreview{
+  height: 408px;
+}
