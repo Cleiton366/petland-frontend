@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BsBell } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
@@ -40,6 +41,9 @@ function Home() {
 
   return (
     <Container user={user}>
+      <a href="/Donationrequest" className={styles.sino}>
+        <BsBell />
+      </a>
       <div className={styles.content}>
         <h1>What do you want to do?</h1>
         <div className={styles.cards}>
