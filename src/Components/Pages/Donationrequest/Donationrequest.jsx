@@ -5,7 +5,6 @@ import styles from './Donationrequest.module.css';
 import Container from '../Container2';
 
 function Donationrequest() {
-  const [user, setUser] = useState();
 
   async function getUser() {
     try {
@@ -13,7 +12,6 @@ function Donationrequest() {
         withCredentials: true,
       });
       if (data.id) {
-        setUser(data);
         return data;
       }
     } catch (err) {
@@ -28,7 +26,7 @@ function Donationrequest() {
       const url = 'http://localhost:4000/donationrequest/list';
       const user = await getUser();
       try {
-        const { data, status } = await axios.get(url, {
+        const { data } = await axios.get(url, {
           headers : {
             userid: user.id,
           }
@@ -46,7 +44,7 @@ function Donationrequest() {
   const acceptDonation = async (index) => {
     const url = 'http://localhost:4000/donationrequest/accept';
     try {
-      const { data, status } = await axios.post(url, {
+      await axios.post(url, {
           interrestedDoneeId : list[index].DonationRequest.interresteddoneeid,
           petId : list[index].DonationRequest.petid,
           donationRequestId : list[index].DonationRequest.donationrequestid,
@@ -72,7 +70,7 @@ function Donationrequest() {
   };
 
   return (
-    <Container user={user}>
+    <Container>
       <div className={styles.sino}>
         <BsBell />
       </div>
