@@ -33,24 +33,28 @@ function DonatePet() {
         alert('Por favor, preencha todos os campos!');
         return false;
       }
-      const { data, status } = await axios.post('http://localhost:4000/pet/new', {
-        withCredentials: true,
-        headers: { 'Content-Type': 'multipart/form-data' },
-        pet: {
-          donatorId: user.id,
-          ownerId: null,
-          petName: petNameUse,
-          petAddress: {
-            city: petCityUse,
-            state: petStateUse,
-          },
-          age: petAgeUse,
-          medicalCondition: petConditionUse,
-          petType: petTypeUse,
-          image: petImageUse,
+
+
+      const petData = {
+        donatorId: user.id,
+        ownerId: null,
+        petName: petNameUse,
+        petAddress: {
+          city: petCityUse,
+          state: petStateUse,
         },
-      });
+        age: petAgeUse,
+        medicalCondition: petConditionUse,
+        petType: petTypeUse
+      }
+
+      const formData = new FormData();
+      formData.append('image', petImageUse);
+      formData.append('pet', JSON.stringify(petData));
+
+      const { data, status } = await axios.post('http://localhost:4000/pet/new', formData);
       console.log(data);
+      alert("Pet cadastrado com sucesso!");
       return true;
     } catch (error) {
       console.error(error.response.data);
