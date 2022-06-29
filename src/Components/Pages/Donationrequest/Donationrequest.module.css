@@ -85,25 +85,27 @@
   }
   
   .Accept{
-    background-color: #15D2B3;
+    background-color: #15D2B3 !important;
   }
   
   .Accept:hover{
-    background-color: #0d8a75;
+    background-color: #0d8a75 !important;
   }
   
   .Accept:active{
-    background-color: #0d8a13;
+    background-color: #0d8a13 !important;
+    color: white !important;
   }
   
   .Reject{
-    background-color: #FF6969;
+    background-color: #FF6969 !important;
   }
   
   .Reject:hover{
-    background-color: #b44848;
+    background-color: #b44848 !important;
   }
   
   .Reject:active{
-    background-color: #ff0000;
+    background-color: #ff0000 !important;
+    color: white !important;
   }
