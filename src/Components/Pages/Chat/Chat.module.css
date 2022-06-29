@@ -42,6 +42,7 @@ textarea {
   background-color: #98d4ca;
   padding-top: 13.5rem;
   resize: none;
+  border-radius: 5px;
 }
 
 textarea:invalid {
