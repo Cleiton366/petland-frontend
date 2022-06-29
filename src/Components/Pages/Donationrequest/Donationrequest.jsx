@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BsBell } from 'react-icons/bs';
 import styles from './Donationrequest.module.css';
 import Container from '../Container2';
 
@@ -71,10 +70,6 @@ function Donationrequest() {
 
   return (
     <Container>
-      <div className={styles.sino}>
-        <BsBell />
-      </div>
-
       <div className={styles.requests}>
          <div>
           {
