@@ -89,9 +89,7 @@ function Adopt() {
                 Medical Condition: {pet.medicalcondition}
               </div>
             </div>
-            <div className={styles.imgLine}>
-              <img src={Line} alt="Linha" width="50%" />
-            </div>
+            <div className={styles.imgLine}></div>
             {pet.donatorid != userId ? (
               <div className={styles.containerDonator}>
                 <div className={styles.donator}>
