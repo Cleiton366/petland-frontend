@@ -60,6 +60,7 @@ function Adopt() {
       interrestedDoneeId: user.id,
       petId: pet.petid
     })
+    alert('Adoption Request sent!');
   }
 
   async function deletePet() {
