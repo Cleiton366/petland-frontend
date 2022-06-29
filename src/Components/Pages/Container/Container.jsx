@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Container.module.css';
-import FotoPerfil from '../../assets/FotoPerfil.png';
-import Back1 from '../../assets/Back1.png';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Container.module.css'
+import FotoPerfil from '../../assets/FotoPerfil.png'
+import Back1 from '../../assets/Back1.png'
 
 function Container(props) {
-  const { children, avatar, username } = props;
+  const { children, avatar, username } = props
 
   return (
     <div className={styles.container}>
@@ -31,9 +31,9 @@ function Container(props) {
           </Link>
         </div>
       </div>
-      {children}
+      {props.children}
     </div>
-  );
+  )
 }
 
-export default Container;
+export default Container

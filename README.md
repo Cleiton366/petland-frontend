@@ -19,9 +19,6 @@
 <li>Gabriel Maia Gondim</li>
 </ul>
 
-<h2>Trello</h2>
-<a href="https://trello.com/b/S7bYTGGi/petland-project">Trello PetLand</a>
-
 <h2>See also:</h2>
 
 <a href="https://www.figma.com/file/FVLvNAWcuzsl9kzyTqPVp7/PetLand">Prototype</a>

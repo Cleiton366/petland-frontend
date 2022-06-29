@@ -1,6 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .titulo {
   cursor: pointer;
-  font-family: "Sacramento", sans-serif;
+  font-family: 'Sacramento', sans-serif;
   color: black;
   margin-bottom: -4.2rem;
   font-size: 3rem;
@@ -13,8 +18,8 @@
 .container_img {
   max-width: 60%;
 }
-.img {
-  max-width: 50%;
+.img img {
+  max-width: 70%;
   padding-top: 0.5rem;
 }
 .perfil p {
@@ -45,6 +50,9 @@
   border-radius: 50%;
 }
 
+body {
+  background-color: #cce7e7;
+}
 @media (max-width: 800px) {
   .perfil,
   .bg {
