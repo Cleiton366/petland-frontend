@@ -6,8 +6,6 @@ import Container from '../Container2';
 
 function Donationrequest() {
   const [user, setUser] = useState();
-  const [showRequest, setShowRequest] = useState(true);
-  const changeShowRequest = () => setShowRequest(false);
 
   async function getUser() {
     try {
@@ -54,7 +52,7 @@ function Donationrequest() {
           petId : list[index].DonationRequest.petid,
           donationRequestId : list[index].DonationRequest.donationrequestid,
       });
-      console.log(data);
+      window.location.reload();
     } catch (err) {
       console.log(err.message);
     }
@@ -68,6 +66,7 @@ function Donationrequest() {
           donationRequestId: list[index].DonationRequest.donationrequestid,
         }
       });
+      window.location.reload();
     } catch (err) {
       console.log(err.message);
     }
