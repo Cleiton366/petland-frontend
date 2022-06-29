@@ -55,8 +55,7 @@ export default function ProfilePreview() {
       to="/UserProfile"
       className={`${style.profilePreview} unstyled-link d-flex p-2`}
     >
-      <p className={style.userId} id={id}></p>
-
+      <p className={style.userId} id={id} />
       <img
         className="rounded-circle h-100"
         src={avatarurl || 'https://i.imgur.com/gJmbboJ.png'}
