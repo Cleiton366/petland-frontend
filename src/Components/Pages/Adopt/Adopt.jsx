@@ -22,7 +22,7 @@ function Adopt() {
         const { data, status } = await axios.get(url, {
           withCredentials: true
         })
-        if (status >= 200 && status < 300) {
+        if (data.petid) {
           setPet(data)
           setUserId(localStorage.getItem('userId'))
         }
@@ -32,18 +32,20 @@ function Adopt() {
     })()
   }, [pet])
 
-  function handleAdoption() {
+  async function handleAdoption() {
     const url = 'http://localhost:4000/donationrequest/new'
-    axios.post(url, {
+    const { data } = await axios.post(url, {
       donatorId: pet.donatorid,
-      petId: pet.petId,
-      interrestedDoneeId: userId
+      interrestedDoneeId: userId,
+      petId: pet.petId
     })
+    console.log(data)
   }
 
-  function deletePet() {
+  async function deletePet() {
     const url = 'http://localhost:4000/pet/delete'
-    axios.delete(url, { petId: pet.petId })
+    const { data } = await axios.delete(url, { body: { petId: pet.petid } })
+    console.log(data)
   }
 
   return (
@@ -64,35 +66,31 @@ function Adopt() {
               <div className={styles.city}>City: {pet.city}</div>
               <div className={styles.age}>Years: {pet.age}</div>
               <div className={styles.medical}>
-                Medical Condition: {pet.medicalCondition}
+                Medical Condition: {pet.medicalcondition}
               </div>
             </div>
             <div className={styles.imgLine}>
               <img src={Line} alt="Linha" width="50%" />
             </div>
-            {pet.donatorid != userId ? (
+            {pet.donatorid == userId ? (
               <div className={styles.containerDonator}>
                 <div className={styles.donator}>
                   Donator:
                   <div className={styles.donatorInfo}>
                     <div className={styles.avatarurl}> {}</div>
-
                     <div className={styles.username}>
                       {pet.donatorInfo.username}
                     </div>
                   </div>
                 </div>
                 <div className={styles.buttonG1}>
-                  <ButtonG
-                    value="Apply for adoption"
-                    onClick={handleAdoption}
-                  />
+                  <button onClick={handleAdoption}>Apply for adoption</button>
                 </div>
               </div>
             ) : (
               <div className={styles.editPet}>
                 <div className={styles.ButtonR}>
-                  <ButtonR value="Delete" onClick={deletePet} />
+                  <button onClick={deletePet}> Delete</button>
                 </div>
               </div>
             )}

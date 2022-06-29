@@ -19,7 +19,6 @@ export default function ProfilePreview() {
             withCredentials: true
           }
         )
-
         if (status >= 200 && status < 300) {
           setUser(data)
           localStorage.setItem('userId', user.id)
