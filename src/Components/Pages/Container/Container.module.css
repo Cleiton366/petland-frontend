@@ -50,6 +50,10 @@
   border-radius: 50%;
 }
 
+.img img {
+  width: 100%;
+}
+
 body {
   background-color: #cce7e7;
 }
