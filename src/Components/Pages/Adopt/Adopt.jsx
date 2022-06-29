@@ -24,7 +24,6 @@ function Adopt() {
         if (data.petid) {
           setPet(data)
           setUserId(window.localStorage.getItem('userId'))
-          console.log(userId)
         }
       } catch (err) {
         console.log(err.message)
@@ -32,14 +31,27 @@ function Adopt() {
     })()
   }, [pet])
 
+  async function getUser() {
+    try {
+      const { data, status } = await axios.get('http://localhost:4000/user-info', {
+        withCredentials: true,
+      });
+      if (data.id) {
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   async function handleAdoption() {
-    const url = 'http://localhost:4000/donationrequest/new'
-    const { data } = await axios.post(url, {
+    const url = 'http://localhost:4000/donationrequest/new';
+    const user = await getUser();
+    await axios.post(url, {
       donatorId: pet.donatorid,
-      interrestedDoneeId: userId,
-      petId: pet.petId
-    })
-    console.log(data)
+      interrestedDoneeId: user.id,
+      petId: pet.petid
+    });
   }
 
   async function deletePet() {
