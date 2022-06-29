@@ -22,6 +22,7 @@ function Adopt() {
           withCredentials: true
         })
         setInterval(() => {}, 30000)
+        console.log(data)
         if (data.petid) {
           setPet(data)
           var { data } = await axios.get(`http://localhost:4000/pet/${data.petid}/image`, {
@@ -101,8 +102,8 @@ function Adopt() {
                 <div className={styles.donator}>
                   Donator:
                   <div className={styles.donatorInfo}>
-                    <div className={styles.avatarurl}> {}</div>
-                    <div className={styles.username}></div>
+                    <div className={styles.avatarurl}></div>
+                    <div className={styles.username}>{pet.donatorInfo.username}</div>
                   </div>
                 </div>
                 <div className={styles.buttonG1}>
