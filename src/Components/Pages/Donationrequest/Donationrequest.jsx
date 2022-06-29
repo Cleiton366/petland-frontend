@@ -33,7 +33,6 @@ function Donationrequest() {
             userid: user.id,
           }
         });
-        console.log(data);
         if (data.length > 0) {
           setList(data);
           return (data);
