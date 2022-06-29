@@ -4,7 +4,7 @@ import axios from 'axios';
 import ReactLoading from 'react-loading';
 import styles from './UserProfile.module.css';
 import Container from '../Container2';
-//  import AddPet from '../../assets/AddPet.png';
+import AddPet from '../../assets/AddPet.png';
 
 function UserProfile() {
   const [user, setUser] = useState(null);
