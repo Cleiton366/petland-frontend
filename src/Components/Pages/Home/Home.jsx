@@ -51,7 +51,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/Home" className="unstyled-link">
+          <Link to="/DonatePet" className="unstyled-link">
             <div className={styles.contentFluid}>
               <img src={Dog2} alt="Dog 2" />
               <p>Help a pet be adopted</p>
