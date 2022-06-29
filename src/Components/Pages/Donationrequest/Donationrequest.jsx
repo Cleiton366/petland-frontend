@@ -4,13 +4,14 @@ import styles from './Donationrequest.module.css';
 import Container from '../Container2';
 
 function Donationrequest() {
-
+  const [user, setUser] = useState(null);
   async function getUser() {
     try {
       const { data } = await axios.get('http://localhost:4000/user-info', {
         withCredentials: true,
       });
       if (data.id) {
+        setUser(data);
         return data;
       }
     } catch (err) {
@@ -69,7 +70,7 @@ function Donationrequest() {
   };
 
   return (
-    <Container>
+    <Container user={user}>
       <div className={styles.requests}>
          <div>
           {
