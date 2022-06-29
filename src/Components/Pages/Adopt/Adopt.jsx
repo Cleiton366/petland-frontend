@@ -7,12 +7,13 @@ import styles from './Adopt.module.css'
 import Line from '../../assets/Line1.png'
 import ButtonG from '../../Layout/Button/ButtonG'
 import ButtonR from '../../Layout/Button/ButtonR'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 function Adopt() {
   const { id } = useParams()
   const [pet, setPet] = useState()
   const [userId, setUserId] = useState()
+  const navigate = useNavigate();
 
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
@@ -44,8 +45,13 @@ function Adopt() {
 
   async function deletePet() {
     const url = 'http://localhost:4000/pet/delete'
-    const { data } = await axios.delete(url, { body: { petId: pet.petid } })
-    console.log(data)
+    await axios.delete(url, {
+      data : {
+        petId: pet.petid
+      }
+    });
+    console.log('pet deleted')
+    navigate(-1);
   }
 
   return (
