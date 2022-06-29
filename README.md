@@ -17,6 +17,7 @@
 <li>Cleiton dos Santos Queiroz</li>
 <li>João Vitor Soares Furtado</li>
 <li>Gabriel Maia Gondim</li>
+<li>Gabriel Cavalcanti Alves</li>
 </ul>
 
 <h2>See also:</h2>
