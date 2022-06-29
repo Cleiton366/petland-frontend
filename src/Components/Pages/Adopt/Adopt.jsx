@@ -33,25 +33,28 @@ function Adopt() {
 
   async function getUser() {
     try {
-      const { data, status } = await axios.get('http://localhost:4000/user-info', {
-        withCredentials: true,
-      });
+      const { data, status } = await axios.get(
+        'http://localhost:4000/user-info',
+        {
+          withCredentials: true
+        }
+      )
       if (data.id) {
-        return data;
+        return data
       }
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   async function handleAdoption() {
-    const url = 'http://localhost:4000/donationrequest/new';
-    const user = await getUser();
+    const url = 'http://localhost:4000/donationrequest/new'
+    const user = await getUser()
     await axios.post(url, {
       donatorId: pet.donatorid,
       interrestedDoneeId: user.id,
       petId: pet.petid
-    });
+    })
   }
 
   async function deletePet() {
