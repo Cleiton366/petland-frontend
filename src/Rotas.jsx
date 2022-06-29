@@ -6,6 +6,7 @@ import Index from './Components/Pages/Index/Index'
 import UserProfile from './Components/Pages/User Profile/UserProfile'
 import Search from './Components/Pages/Search/Search'
 import Adopt from './Components/Pages/Adopt/Adopt'
+import Chat from './Components/Pages/Chat/Chat'
 
 function Rotas() {
   return (
@@ -19,6 +20,7 @@ function Rotas() {
         />
         <Route exact path="/Adopt/:id" element={<Adopt />} />
         <Route exact path="/UserProfile" element={<UserProfile />} />
+        <Route exact path="/Chat" element={<Chat />} />
       </Routes>
     </Router>
   )

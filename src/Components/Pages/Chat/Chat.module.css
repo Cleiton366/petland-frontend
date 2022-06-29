@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding-top: 4rem;
+  display: flex;
+  justify-items: space-between;
+  justify-content: center;
+}
+
+img {
+  justify-content: center;
+  border-radius: 5px;
+  width: 20rem;
+}
+
+.petI {
+  background-color: #d5f3ee;
+
+  justify-items: space-between;
+  justify-content: center;
+  width: 20rem;
+  height: 17rem;
+}
+
+.chat {
+  background-color: #d5f3ee;
+  width: 20rem;
+  border-radius: 1rem;
+}
+.chat .nameD {
+  background-color: #98d4ca;
+  max-width: 15rem;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 20rem;
+  background-color: #a3dcd2;
+  padding-top: 14rem;
+}
+
+.text {
+}
