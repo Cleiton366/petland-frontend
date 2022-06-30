@@ -17,7 +17,7 @@ function Donationrequest() {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
   const [list, setList] = useState([]);
 
@@ -77,7 +77,7 @@ function Donationrequest() {
           list.length > 0 ? list.map((request, index) => (
             <div className={styles.pedido} key={index}>
               <div className={styles.perfil2}>
-                <img src={request.User.userPhoto} alt="user picture" width="52px" height="52px" />
+                <img  style={styles.imgdone} src={request.User.userPhoto} alt="user picture" width="52px" height="52px" />
                 <p><strong>{request.User.userName}</strong></p>
               </div>
               <p>
