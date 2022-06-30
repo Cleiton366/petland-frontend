@@ -27,3 +27,5 @@
 <a href="https://github.com/Cleiton366/petland-backend">Back-End</a>
 <br>
 <a href="https://docs.google.com/document/d/195aoLrZPR0PdBPk3IkpMRdno1d7Rawyuwxew2cNeJD4">API documentation</a>
+<br>
+<a href="https://docs.google.com/document/d/1flBeYBGPdrk1xFGHUmTKO2ySwXiHWuTj/edit?usp=sharing&ouid=109033268997405314772&rtpof=true&sd=true">Heuristic evaluation</a>
